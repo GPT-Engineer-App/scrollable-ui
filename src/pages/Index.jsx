@@ -1,18 +1,47 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { Box, Container, Flex, IconButton, Image, VStack } from "@chakra-ui/react";
+import { FaChevronDown, FaColumns } from "react-icons/fa";
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
-      </VStack>
+    <Container maxW="container.xl" height="100vh" p={0}>
+      <Flex direction="column" height="100%">
+        {/* Navigation Bar */}
+        <Flex as="nav" align="center" justify="space-between" padding="1rem" bg="gray.900" color="white">
+          <Image src="/logo.png" alt="Logo" boxSize="40px" />
+          <Flex>
+            <IconButton aria-label="Dropdown" icon={<FaChevronDown />} variant="ghost" color="white" />
+            <IconButton aria-label="Columns" icon={<FaColumns />} variant="ghost" color="white" />
+          </Flex>
+        </Flex>
+
+        {/* Main Content Area */}
+        <Flex flex="1" overflow="hidden">
+          {/* Left Section */}
+          <Box flex="1" bg="gray.800" color="white" p={4}>
+            {/* Static content goes here */}
+            <VStack spacing={4}>
+              <Box bg="gray.700" p={4} borderRadius="md" width="100%">
+                Static Content 1
+              </Box>
+              <Box bg="gray.700" p={4} borderRadius="md" width="100%">
+                Static Content 2
+              </Box>
+            </VStack>
+          </Box>
+
+          {/* Right Section */}
+          <Box flex="2" bg="gray.700" color="white" p={4} overflowY="auto">
+            {/* Scrollable content goes here */}
+            <VStack spacing={4}>
+              {Array.from({ length: 20 }, (_, i) => (
+                <Box key={i} bg="gray.600" p={4} borderRadius="md" width="100%">
+                  Scrollable Content {i + 1}
+                </Box>
+              ))}
+            </VStack>
+          </Box>
+        </Flex>
+      </Flex>
     </Container>
   );
 };
