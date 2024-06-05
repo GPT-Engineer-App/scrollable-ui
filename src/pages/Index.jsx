@@ -1,4 +1,4 @@
-import { Box, Container, Flex, IconButton, Image, VStack } from "@chakra-ui/react";
+import { Box, Container, Flex, IconButton, Image, VStack, Text } from "@chakra-ui/react";
 import { FaChevronDown, FaColumns } from "react-icons/fa";
 
 const Index = () => {
@@ -40,6 +40,11 @@ const Index = () => {
               ))}
             </VStack>
           </Box>
+        </Flex>
+
+        {/* Footer */}
+        <Flex as="footer" align="center" justify="center" padding="1rem" bg="gray.900" color="white">
+          <Text>&copy; 2023 Your Company. All rights reserved.</Text>
         </Flex>
       </Flex>
     </Container>
